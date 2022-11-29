@@ -2,7 +2,6 @@
  * @file kalman.c
  * @author Denis Shreiber (chuyecd@gmail.com)
  * @brief 
- * @version 0.1
  * @date 2022-11-29
  * 
  * @copyright Copyright (c) 2022
@@ -14,10 +13,7 @@
 #include "kalman.h"
 
 int kalman_init_f(kalman_filter_t *filter, float k, float val) {
-    if (filter->k > 1) {
-        return -1;
-    }
-    else if (filter->k < 0) {
+    if (filter->k > 1 || filter->k < 0) {
         return -1;
     }
 
@@ -28,10 +24,7 @@ int kalman_init_f(kalman_filter_t *filter, float k, float val) {
 }
 
 int kalman_init_u16(kalman_filter_t *filter, float k, uint16_t val) {
-    if (filter->k > 1) {
-        return -1;
-    }
-    else if (filter->k < 0) {
+    if (filter->k > 1 || filter->k < 0) {
         return -1;
     }
 
